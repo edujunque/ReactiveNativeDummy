@@ -27,9 +27,11 @@ const Estilos = {
   },*/
 
   principal: {
+    height: 150,
     paddingTop: 0,
     alignItems: 'center',
-    justifyContent: 'flex-end'
+    justifyContent: 'center',
+    backgroundColor: 'black'
   },
 
   botao: {
@@ -64,7 +66,7 @@ const App = () => {
   return (
       <View style= { principal }>
         
-        <TouchableOpacity style= { botao }>
+        <TouchableOpacity style= { botao } onPress={ botaoPressionado }>
           <Text style= { textoBotao }>Clique Aqui</Text>
         </TouchableOpacity>
       
