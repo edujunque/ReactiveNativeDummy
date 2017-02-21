@@ -27,7 +27,7 @@
 //Usar função de callback que recebe como parametro o nome da variavel que será cada item do array, nesse caso "item"
  	render() {
  		return (
- 			<ScrollView>
+ 			<ScrollView style={{ backgroundColor: '#EEF9F5'}}>
 	 			{ this.state.listaItens.map(item => (<Itens key={item.titulo} item={item} />))}
  			</ScrollView>
  			);
