@@ -13,8 +13,11 @@ export default class BarraNavegacao extends Component {
   render() {
   	if(this.props.voltar){
   		return (
-  			<View style={ styles.barraTitulo }>
-	  			<TouchableHighlight onPress={() => {
+  			<View style={[styles.barraTitulo, { backgroundColor: this.props.corFundo }] }>
+	  			<TouchableHighlight 
+  				underlayColor={this.props.corFundo}
+		        activeOpacity={0.3}
+	  			onPress={() => {
         		this.props.navigator.pop();
         	}}>
 	  				<Image source={imgVoltar}/>
@@ -45,8 +48,5 @@ const styles = StyleSheet.create({
  		fontSize: 18,
  		color: '#000',
  		textAlign: 'center'
- 	},
- 	btnVoltar: {
-
  	}
-});
+ });

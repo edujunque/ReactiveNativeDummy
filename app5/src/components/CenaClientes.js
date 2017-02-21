@@ -15,13 +15,13 @@
  export default class CenaClientes extends Component {
   render() {
     return (
-     <ScrollView>
+     <ScrollView style={{flex: 1, backgroundColor:'#FFF'}}>
      <StatusBar
      //hidden true ou false
-     backgroundColor = '#CCC'
+     backgroundColor = '#B9C941'
      />
 
-     <BarraNavegacao voltar navigator={this.props.navigator}/>
+     <BarraNavegacao voltar navigator={this.props.navigator} corFundo='#B9C941'/>
 
      <View>
        <View style={ styles.titulo }>

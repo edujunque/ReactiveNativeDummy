@@ -13,14 +13,14 @@
  export default class CenaContatos extends Component {
   render() {
     return (
-     <ScrollView>
+     <ScrollView style={{flex: 1, backgroundColor:'#FFF'}}>
      <StatusBar
      //hidden true ou false
-     backgroundColor = '#CCC'
+     backgroundColor = '#61BD8C'
      />
 
-     <BarraNavegacao voltar navigator={this.props.navigator}/>
-
+     <BarraNavegacao voltar navigator={this.props.navigator} corFundo='#61BD8C'/>
+     
      <View>
        <View style={ styles.titulo }>
          <Image source={imgContato} />
