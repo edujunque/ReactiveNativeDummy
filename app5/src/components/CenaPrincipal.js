@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, View, StatusBar, Image, ScrollView} from 'react-native';
+import { StyleSheet, View, StatusBar, Image, ScrollView, TouchableHighlight} from 'react-native';
 import BarraNavegacao from './BarraNavegacao';
 
 const imglogo = require('../imgs/logo.png');
@@ -23,19 +23,36 @@ export default class CenaPrincipal extends Component {
           backgroundColor = '#CCC'
         />
 
-        <BarraNavegacao />
+        <BarraNavegacao voltar={false}/>
         
         <View style={ styles.logo }>
         	<Image  source={imglogo} />
         </View>
         <View style={ styles.viewBotoes }>
-	        <Image style={ styles.botoes }  source={imgMenuCliente} />
-	        <Image style={ styles.botoes } source={imgMenuContato} />
-         </View>	
-	     <View style={ styles.viewBotoes }>
-	        <Image style={ styles.botoes } source={imgMenuEmpresa} />
-	        <Image style={ styles.botoes } source={imgMenuServico} />
-       	 </View>
+	        <TouchableHighlight onPress={() => {
+	        	this.props.navigator.push({ id: 'Clientes' });
+	        }}>
+	        	<Image style={ styles.botoes }  source={imgMenuCliente} />
+	        </TouchableHighlight>
+	        <TouchableHighlight onPress={() => {
+	        	this.props.navigator.push({ id: 'Contatos' });
+	        }}>
+	        	<Image style={ styles.botoes } source={imgMenuContato} />
+	        </TouchableHighlight>
+	        </View>	
+
+	        <View style={ styles.viewBotoes }>
+	        <TouchableHighlight onPress={() => {
+	        	this.props.navigator.push({ id: 'Empresa' });
+	        }}>
+	        	<Image style={ styles.botoes } source={imgMenuEmpresa} />
+	        </TouchableHighlight>
+	        <TouchableHighlight onPress={() => {
+	        	this.props.navigator.push({ id: 'Servicos' });
+	        }}>
+	        	<Image style={ styles.botoes } source={imgMenuServico} />
+	        </TouchableHighlight>
+        </View>
         
         
       </ScrollView>
