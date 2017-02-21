@@ -5,32 +5,33 @@
  */
 
  import React, { Component } from 'react';
- import { Text } from 'react-native';
+ import { ScrollView } from 'react-native';
+ import Itens from './Itens';
+ import axios from 'axios';
 
  export default class ListaItens extends Component {
-
- 	constructor(props) {
+ 	constructor(props){
  		super(props);
- 		console.log('Construindo')
+
+ 		this.state = { listaItens: [] };
  	}
+
 
  	componentWillMount() {
- 		console.log('antes de render')	
+ 		//requisição HTTP
+ 		axios.get('http://faus.com.br/recursos/c/dmairr/api/itens.html')
+ 		.then(response => { this.setState({ listaItens: response.data}); })
+ 		.catch(() => { console.log('Erro ao recuperar os dados'); });
  	}
 
+//Usar função de callback que recebe como parametro o nome da variavel que será cada item do array, nesse caso "item"
  	render() {
- 		console.log('é render')
  		return (
-
- 			<Text>Componente teste</Text>
+ 			<ScrollView>
+	 			{ this.state.listaItens.map(item => (<Itens key={item.titulo} item={item} />))}
+ 			</ScrollView>
  			);
+ 		}	
  	}
-
- 	componentDidMount() {
- 		console.log('depois de render')
- 	}
-
-
- }
 
 
