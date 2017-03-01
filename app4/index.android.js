@@ -4,17 +4,33 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
-import ListaItens from './src/components/ListaItens';
-
-export default class app4 extends Component {
+export default class AvatarItem extends Component {
   render() {
-    return (
-      <ListaItens />
-    );
+    <View style={styles.container}>
+      <Image style={styles.avatarImage} source= />
+      <Text style={styles.title}>John Doe</Text>
+    </View>
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  avatarImage: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+  },
+  title: {
+    flex: 1,
+    fontSize: 19,
+    fontWeight: 'bold',
+  },
+});
 
 
 AppRegistry.registerComponent('app4', () => app4);

@@ -5,6 +5,10 @@ import firebase from 'firebase';
 
 export default class firebaseTeste extends Component {
   
+  constructor(props) {
+    super(props);
+    this.state = {pontuacao : ''}
+  }
 
   componentWillMount() {
     const config = {
@@ -69,6 +73,8 @@ export default class firebaseTeste extends Component {
 
         if (error.code == 'auth/wrong-password'){
          alert('Crianço!!! essa senha ou email estão erradas');
+       } else {
+        alert(errorMessage);
        }
 
        
@@ -91,19 +97,20 @@ export default class firebaseTeste extends Component {
     
   // }
 
-  // listarDados(){
-  //    var pontuacao = firebase.database().ref('pontuacao');
-  //    pontuacao.on('value', (snapshot) => { 
-  //       var pontos = snapshot.val();
-  //       this.setState({ pontuacao : pontos});
-  //     });
-  // }
+  listarDados(){
+     var pontuacao = firebase.database().ref('pontuacao');
+     pontuacao.on('value', (snapshot) => { 
+        var pontos = snapshot.val();
+        this.setState({ pontuacao : pontos});
+      });
+  }
 
   render() {
+
     return (
       <View style={styles.botao}>
         <Text>
-         
+           {this.state.pontuacao}
         </Text>
          <Button style={{flex:1}}
             onPress={ () => { this.cadastrarUsuario(); } }
@@ -112,11 +119,18 @@ export default class firebaseTeste extends Component {
             accessibilityLabel='Cadastrar usuario'
           />
 
+            <Button style={{flex:1}}
+            onPress={ () => { this.listarDados(); } }
+            title= 'Listar Dados'
+            color= '#841584'
+            accessibilityLabel='Listar dados'
+          />
+
           <Button style={{flex:1}}
             onPress={ () => { this.verificarUsuarioLogado(); } }
-            title= 'Verifica usuario logado'
+            title= 'Verificar usuario'
             color= '#841584'
-            accessibilityLabel='Verifica usuario logado'
+            accessibilityLabel='Verificar usuario'
           />
 
           <Button style={{flex:1}}
